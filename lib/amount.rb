@@ -1,7 +1,7 @@
 class Amount
 
   DEFAULT_BALANCE = 0
-  attr_reader :statement, :balance, :statement
+  attr_reader :balance
 
   def initialize(balance = DEFAULT_BALANCE)
     @balance = balance
