@@ -1,26 +1,24 @@
 class Amount
 
   DEFAULT_BALANCE = 0
+  attr_reader :statement, :balance
 
   def initialize(balance = DEFAULT_BALANCE)
     @balance = balance
+    @statement = []
   end
 
   def deposit(date, a)
-    @date = date
     @balance += a
-  end
-
-  def viewBalance
-    @balance
+    @statement << "#{date} || #{a}.00 || || #{@balance}.00"
   end
 
   def withdraw(date, a)
-    @date = date
-    if a > @balance
-      raise "Not enough funds. Current balance is #{@balance}"
-    else
-      @balance -= a
-    end
+    fail "Not enough funds. Current balance is #{@balance}.00" if a > @balance
+    @balance -= a
+    @statement << "#{date} || #{a}.00 || || #{@balance}.00"
+
   end
+
+
 end
