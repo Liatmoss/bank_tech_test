@@ -1,7 +1,7 @@
 class Amount
 
   DEFAULT_BALANCE = 0
-  attr_reader :statement, :balance
+  attr_reader :statement, :balance, :statement
 
   def initialize(balance = DEFAULT_BALANCE)
     @balance = balance
@@ -21,6 +21,7 @@ class Amount
   end
 
   def statement
-    "date || credit || debit || balance\n #{@statement.reverse.join("\n")}"
+    @statement
   end
+
 end
