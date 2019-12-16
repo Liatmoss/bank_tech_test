@@ -16,18 +16,11 @@ class Amount
   def withdraw(date, a)
     fail "Not enough funds. Current balance is #{@balance}.00" if a > @balance
     @balance -= a
-    @statement << "#{date} || #{a}.00 || || #{@balance}.00"
+    @statement << "#{date} || || #{a}.00 || #{@balance}.00"
 
   end
 
   def statement
     @statement
   end
-
-  private
-
-  def print_statement
-
-  end
-
 end

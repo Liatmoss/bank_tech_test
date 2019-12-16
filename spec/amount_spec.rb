@@ -28,7 +28,12 @@ describe Amount do
     it 'prints the statement after one deposit' do
       amount.deposit("10/12/2012", 100)
       expect(amount.statement).to include ("10/12/2012 || 100.00 || || 100.00")
+    end
 
+    it 'prints the statement after a withdrawal' do
+      amount.deposit("10/12/2012", 500)
+      amount.withdraw("11/12/2012", 100)
+      expect(amount.statement).to include ("11/12/2012 || || 100.00 || 400.00")
     end
   end
 
