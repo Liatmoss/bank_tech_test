@@ -41,7 +41,7 @@ date || credit || debit || balance
  => "date || credit || debit || balance\n 16/12/2019 || || 200.00 || 300.00\n16/12/2019 || 500.00 || || 500.00"
  ```
 
-#### Approach to solving the problem:
+#### Approach to solving the problem and how code is structured:
 - This problem is separated into two classes, Account and Statement to ensure that everything was cohesive and DRY
 - The Account class starts with a default balance of 0 and is adjusted when amounts are deposited or withdrawn. Each entry in the account is added to the statement array with the date the change was made.
 - The single responsibility of the Statement class is to print the array with the parameters specified in the acceptance criteria
