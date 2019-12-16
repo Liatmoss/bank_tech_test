@@ -1,8 +1,5 @@
-# frozen_string_literal: true
-
 require_relative 'amount'
 class Statement
-
   def initialize(amount)
     @amount = amount
   end

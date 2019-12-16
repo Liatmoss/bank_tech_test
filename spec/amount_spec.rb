@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'amount'
 
 describe Amount do
@@ -21,7 +19,7 @@ describe Amount do
 
     it 'raises an error if balance is less than withdrawal amount' do
       amount.deposit(100)
-      expect { amount.withdraw(300) }.to raise_error "Not enough funds. Current balance is 100.00"
+      expect { amount.withdraw(300) }.to raise_error 'Not enough funds. Current balance is 100.00'
     end
   end
 end

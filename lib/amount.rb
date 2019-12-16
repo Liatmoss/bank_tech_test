@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Amount
   DEFAULT_BALANCE = 0
   attr_reader :balance, :statement

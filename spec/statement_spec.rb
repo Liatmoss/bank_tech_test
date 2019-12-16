@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'statement'
 
 describe Statement do
@@ -9,12 +7,12 @@ describe Statement do
   describe 'print_statement' do
     it 'prints the statement after one deposit' do
       allow(amount).to receive(:statement).and_return ["#{Time.now.strftime('%d/%m/%Y')} || 100.00 || || 100.00"]
-      expect(statement.print).to include ("#{Time.now.strftime('%d/%m/%Y')} || 100.00 || || 100.00")
+      expect(statement.print).to include "#{Time.now.strftime('%d/%m/%Y')} || 100.00 || || 100.00"
     end
 
     it 'prints the statement after a withdrawal' do
       allow(amount).to receive(:statement).and_return ["#{Time.now.strftime('%d/%m/%Y')} || || 100.00 || 400.00"]
-      expect(statement.print).to include ("#{Time.now.strftime('%d/%m/%Y')} || || 100.00 || 400.00")
+      expect(statement.print).to include "#{Time.now.strftime('%d/%m/%Y')} || || 100.00 || 400.00"
     end
 
     it 'prints a full statement with a deposit and withdrawal' do
