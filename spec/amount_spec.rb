@@ -35,6 +35,9 @@ describe Amount do
       amount.withdraw("11/12/2012", 100)
       expect(amount.statement).to include ("11/12/2012 || || 100.00 || 400.00")
     end
+
+    it 'prints a full statement with a deposit and withdrawal' do
+
   end
 
 end

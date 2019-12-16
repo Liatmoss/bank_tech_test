@@ -21,6 +21,6 @@ class Amount
   end
 
   def statement
-    @statement
+    "date || credit || deposit || balance\n #{@statement.reverse.join("\n")}"
   end
 end
