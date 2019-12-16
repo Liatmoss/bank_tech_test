@@ -19,3 +19,18 @@ date || credit || debit || balance
 13/01/2012 || 2000.00 || || 3000.00
 10/01/2012 || 1000.00 || || 1000.00
 ```
+
+Example of code running in IRB:
+
+```
+2.6.3 :001 > require './lib/statement'
+ => true
+2.6.3 :002 > s = Statement.new(a = Amount.new)
+ => #<Statement:0x00007f9baf8e7478 @amount=#<Amount:0x00007f9baf8e74c8 @balance=0, @statement=[]>>
+2.6.3 :003 > a.deposit(500)
+ => ["16/12/2019 || 500.00 || || 500.00"]
+2.6.3 :004 > a.withdraw(200)
+ => ["16/12/2019 || 500.00 || || 500.00", "16/12/2019 || || 200.00 || 300.00"]
+2.6.3 :005 > s.print
+ => "date || credit || debit || balance\n 16/12/2019 || || 200.00 || 300.00\n16/12/2019 || 500.00 || || 500.00"
+ ```
