@@ -17,6 +17,11 @@ describe Amount do
       expect(amount.withdraw("12/12/2012", 500.00)).to eq(2500.00)
     end
 
+    it 'raises an error if balance is less than withdrawal amount' do
+      amount.deposit("10/12/2012", 100)
+      expect { amount.withdraw("12/12/2012", 300) }.to raise_error "Not enough funds. Current balance is 100"
+    end
+
   end
 
 end
