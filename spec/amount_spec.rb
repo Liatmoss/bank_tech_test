@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 require 'amount'
 
 describe Amount do
-
-  let (:amount) {Amount.new}
+  let(:amount) { Amount.new }
 
   describe '#deposit' do
     it 'expects the balance to equal 500 after a deposit of 500' do

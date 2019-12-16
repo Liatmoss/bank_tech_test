@@ -1,5 +1,6 @@
-require_relative 'amount'
+# frozen_string_literal: true
 
+require_relative 'amount'
 class Statement
 
   def initialize(amount)
@@ -9,5 +10,4 @@ class Statement
   def print
     "date || credit || debit || balance\n #{@amount.statement.reverse.join("\n")}"
   end
-
 end
