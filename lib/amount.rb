@@ -6,7 +6,8 @@ class Amount
     @balance = balance
   end
 
-  def deposit(a)
+  def deposit(date, a)
+    @date = date
     @balance += a
   end
 
@@ -14,4 +15,8 @@ class Amount
     @balance
   end
 
+  def withdraw(date, a)
+    @date = date
+    @balance -= a
+  end
 end
