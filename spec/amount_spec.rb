@@ -37,7 +37,10 @@ describe Amount do
     end
 
     it 'prints a full statement with a deposit and withdrawal' do
-
+      amount.deposit(1000)
+      amount.deposit(2000)
+      amount.withdraw(500)
+      expect(amount.statement).to eq("date || credit || debit || balance\n #{Time.now.strftime("%d/%m/%Y")} || || 500.00 || 2500.00\n#{Time.now.strftime("%d/%m/%Y")} || 2000.00 || || 3000.00\n#{Time.now.strftime("%d/%m/%Y")} || 1000.00 || || 1000.00")
     end
 
   end
