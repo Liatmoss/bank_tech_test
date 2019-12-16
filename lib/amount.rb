@@ -20,5 +20,14 @@ class Amount
 
   end
 
+  def statement
+    @statement
+  end
+
+  private
+
+  def print_statement
+
+  end
 
 end

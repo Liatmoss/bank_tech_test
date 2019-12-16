@@ -22,7 +22,14 @@ describe Amount do
       amount.deposit("10/12/2012", 100)
       expect { amount.withdraw("12/12/2012", 300) }.to raise_error "Not enough funds. Current balance is 100.00"
     end
+  end
 
+  describe '#statement' do
+    it 'prints the statement after one deposit' do
+      amount.deposit("10/12/2012", 100)
+      expect(amount.statement).to include ("10/12/2012 || 100.00 || || 100.00")
+
+    end
   end
 
 end
