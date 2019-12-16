@@ -1,4 +1,4 @@
-require_relative 'amount'
+require_relative 'account'
 class Statement
   def initialize(amount)
     @amount = amount

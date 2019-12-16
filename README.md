@@ -20,12 +20,18 @@ date || credit || debit || balance
 10/01/2012 || 1000.00 || || 1000.00
 ```
 
-Example of code running in IRB:
+### To run the program/tests:
+1. Install gems using 'bundle install'
+2. Run the program in IRB using the example below
+3. Use 'rspec' to run tests with SimpleCov checking the coverage - coverage should be higher than 95%
+4. If all tests pass, run 'rubocop' to check the readability of code
+
+### Example of code running in IRB:
 
 ```
 2.6.3 :001 > require './lib/statement'
  => true
-2.6.3 :002 > s = Statement.new(a = Amount.new)
+2.6.3 :002 > s = Statement.new(a = Account.new)
  => #<Statement:0x00007f9baf8e7478 @amount=#<Amount:0x00007f9baf8e74c8 @balance=0, @statement=[]>>
 2.6.3 :003 > a.deposit(500)
  => ["16/12/2019 || 500.00 || || 500.00"]
@@ -34,3 +40,8 @@ Example of code running in IRB:
 2.6.3 :005 > s.print
  => "date || credit || debit || balance\n 16/12/2019 || || 200.00 || 300.00\n16/12/2019 || 500.00 || || 500.00"
  ```
+
+#### Approach to solving the problem:
+- This problem is separated into two classes, Account and Statement to ensure that everything was cohesive and DRY
+- The Account class starts with a default balance of 0 and is adjusted when amounts are deposited or withdrawn. Each entry in the account is added to the statement array with the date the change was made.
+- The single responsibility of the Statement class is to print the array with the parameters specified in the acceptance criteria

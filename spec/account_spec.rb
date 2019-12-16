@@ -1,7 +1,7 @@
-require 'amount'
+require 'account'
 
-describe Amount do
-  let(:amount) { Amount.new }
+describe Account do
+  let(:amount) { Account.new }
 
   describe '#deposit' do
     it 'expects the balance to equal 500 after a deposit of 500' do
