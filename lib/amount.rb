@@ -8,19 +8,19 @@ class Amount
     @statement = []
   end
 
-  def deposit(date, a)
+  def deposit(a)
     @balance += a
-    @statement << "#{date} || #{a}.00 || || #{@balance}.00"
+    @statement << "#{Time.now.strftime("%d/%m/%Y")} || #{a}.00 || || #{@balance}.00"
   end
 
-  def withdraw(date, a)
+  def withdraw(a)
     fail "Not enough funds. Current balance is #{@balance}.00" if a > @balance
     @balance -= a
-    @statement << "#{date} || || #{a}.00 || #{@balance}.00"
+    @statement << "#{Time.now.strftime("%d/%m/%Y")} || || #{a}.00 || #{@balance}.00"
 
   end
 
   def statement
-    "date || credit || deposit || balance\n #{@statement.reverse.join("\n")}"
+    "date || credit || debit || balance\n #{@statement.reverse.join("\n")}"
   end
 end
