@@ -29,19 +29,23 @@ date || credit || debit || balance
 ### Example of code running in IRB:
 
 ```
-2.6.3 :001 > require './lib/statement'
+2.6.3 :001 > require './lib/transaction'
  => true
-2.6.3 :002 > s = Statement.new(a = Account.new)
- => #<Statement:0x00007f9baf8e7478 @amount=#<Amount:0x00007f9baf8e74c8 @balance=0, @statement=[]>>
-2.6.3 :003 > a.deposit(500)
- => ["16/12/2019 || 500.00 || || 500.00"]
-2.6.3 :004 > a.withdraw(200)
- => ["16/12/2019 || 500.00 || || 500.00", "16/12/2019 || || 200.00 || 300.00"]
-2.6.3 :005 > s.print
- => "date || credit || debit || balance\n 16/12/2019 || || 200.00 || 300.00\n16/12/2019 || 500.00 || || 500.00"
+2.6.3 :002 > t = Transaction.new(s = Statement.new(a = Account.new))
+ => #<Transaction:0x00007fc89693a3f8 @statement=#<Statement:0x00007fc89693a448 @amount=#<Account:0x00007fc89693a498 @balance=0, @statement=[]>>>
+2.6.3 :003 > a.deposit(1000)
+ => ["17/12/2019 || 1000.00 || || 1000.00"]
+2.6.3 :004 > a.deposit(2000)
+ => ["17/12/2019 || 1000.00 || || 1000.00", "17/12/2019 || 2000.00 || || 3000.00"]
+2.6.3 :005 > a.withdraw(500)
+ => ["17/12/2019 || 1000.00 || || 1000.00", "17/12/2019 || 2000.00 || || 3000.00", "17/12/2019 || || 500.00 || 2500.00"]
+2.6.3 :006 > t.print
+ => "date || credit || debit || balance\n 17/12/2019 || || 500.00 || 2500.00\n17/12/2019 || 2000.00 || || 3000.00\n17/12/2019 || 1000.00 || || 1000.00"
+2.6.3 :007 >
  ```
 
 #### Approach to solving the problem and how code is structured:
-- This problem is separated into two classes, Account and Statement to ensure that everything was cohesive and DRY
+- This problem is separated into three classes, Account, Statement and Transaction to ensure that everything was cohesive and DRY
 - The Account class starts with a default balance of 0 and is adjusted when amounts are deposited or withdrawn. Each entry in the account is added to the statement array with the date the change was made.
-- The single responsibility of the Statement class is to print the array with the parameters specified in the acceptance criteria
+- The single responsibility of the Statement class is to format the array with the parameters specified in the acceptance criteria
+- The Transaction class  prints the formatted statement
