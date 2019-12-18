@@ -32,16 +32,16 @@ date || credit || debit || balance
 2.6.3 :001 > require './lib/transaction'
  => true
 2.6.3 :002 > t = Transaction.new(s = Statement.new(a = Account.new))
- => #<Transaction:0x00007fc89693a3f8 @statement=#<Statement:0x00007fc89693a448 @amount=#<Account:0x00007fc89693a498 @balance=0, @statement=[]>>>
+ => #<Transaction:0x00007fd57f9298a0 @statement=#<Statement:0x00007fd57f929990 @amount=#<Account:0x00007fd57f9299e0 @balance=0, @statement=[]>>>
 2.6.3 :003 > a.deposit(1000)
- => ["17/12/2019 || 1000.00 || || 1000.00"]
+ => 1000
 2.6.3 :004 > a.deposit(2000)
- => ["17/12/2019 || 1000.00 || || 1000.00", "17/12/2019 || 2000.00 || || 3000.00"]
+ => 3000
 2.6.3 :005 > a.withdraw(500)
- => ["17/12/2019 || 1000.00 || || 1000.00", "17/12/2019 || 2000.00 || || 3000.00", "17/12/2019 || || 500.00 || 2500.00"]
+ => 2500
 2.6.3 :006 > puts t.print
 date || credit || debit || balance
-18/12/2019 || || 500.00 || 2500.00
+ 18/12/2019 || || 500.00 || 2500.00
 18/12/2019 || 2000.00 || || 3000.00
 18/12/2019 || 1000.00 || || 1000.00
  ```

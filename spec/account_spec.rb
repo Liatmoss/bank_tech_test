@@ -7,6 +7,11 @@ describe Account do
     it 'expects the balance to equal 500 after a deposit of 500' do
       expect(amount.deposit(500.00)).to eq(500)
     end
+
+    it 'expects the balance to equal 3000 after two deposits' do
+      amount.deposit(500.00)
+      expect(amount.deposit(2500.00)).to eq(3000.00)
+    end
   end
 
   describe '#credit' do
